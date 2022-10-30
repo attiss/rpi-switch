@@ -1,0 +1,9 @@
+PinAssignment:
+  Relay1Pin: 9
+  Relay2Pin: 10
+  Relay3Pin: 22
+  Relay4Pin: 27
+  Relay5Pin: 17
+  Relay6Pin: 4
+  Relay7Pin: 3
+  Relay8Pin: 2
