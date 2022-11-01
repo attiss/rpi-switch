@@ -95,7 +95,6 @@ func (rc RelayController) GetState(relay string) (int, error) {
 	}
 
 	rpiPin := rpio.Pin(pin)
-	rpiPin.Input()
 
 	var state int
 	switch rpiPin.Read() {
