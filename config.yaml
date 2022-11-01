@@ -1,9 +1,11 @@
+ListenAddress: 0.0.0.0
+ListenPort: 8080
 PinAssignment:
-  Relay1Pin: 9
-  Relay2Pin: 10
-  Relay3Pin: 22
-  Relay4Pin: 27
-  Relay5Pin: 17
-  Relay6Pin: 4
-  Relay7Pin: 3
-  Relay8Pin: 2
+  relay1: 9
+  relay2: 10
+  relay3: 22
+  relay4: 27
+  relay5: 17
+  relay6: 4
+  relay7: 3
+  relay8: 2

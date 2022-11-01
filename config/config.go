@@ -1,27 +1,34 @@
 package config
 
 import (
+	"errors"
+	"fmt"
 	"os"
 
 	"github.com/goccy/go-yaml"
 )
 
 type Config struct {
+	ListenAddress string        `yaml:"ListenAddress"`
+	ListenPort    int           `yaml:"ListenPort"`
 	PinAssignment PinAssignment `yaml:"PinAssignment"`
 }
 
-type PinAssignment struct {
-	Relay1Pin uint8 `yaml:"Relay1Pin"`
-	Relay2Pin uint8 `yaml:"Relay2Pin"`
-	Relay3Pin uint8 `yaml:"Relay3Pin"`
-	Relay4Pin uint8 `yaml:"Relay4Pin"`
-	Relay5Pin uint8 `yaml:"Relay5Pin"`
-	Relay6Pin uint8 `yaml:"Relay6Pin"`
-	Relay7Pin uint8 `yaml:"Relay7Pin"`
-	Relay8Pin uint8 `yaml:"Relay8Pin"`
+func (c Config) GetListenAddress() string {
+	return fmt.Sprintf("%s:%d", c.ListenAddress, c.ListenPort)
 }
 
-func ReadConfig(filePath string) (Config, error) {
+func (c Config) validate() error {
+	if len(c.PinAssignment) == 0 {
+		return errors.New("pin assignment is missing")
+	}
+
+	return nil
+}
+
+type PinAssignment map[string]uint8
+
+func readConfig(filePath string) (Config, error) {
 	fileBytes, err := os.ReadFile(filePath)
 	if err != nil {
 		return Config{}, err
@@ -33,4 +40,24 @@ func ReadConfig(filePath string) (Config, error) {
 	}
 
 	return config, nil
+}
+
+func GetConfig(filePath string) (Config, error) {
+	cfg, err := readConfig(filePath)
+	if err != nil {
+		return Config{}, err
+	}
+
+	if err := cfg.validate(); err != nil {
+		return Config{}, err
+	}
+
+	if cfg.ListenAddress == "" {
+		cfg.ListenAddress = "0.0.0.0"
+	}
+	if cfg.ListenPort == 0 {
+		cfg.ListenPort = 8080
+	}
+
+	return cfg, nil
 }

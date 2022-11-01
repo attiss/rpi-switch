@@ -4,6 +4,7 @@ go 1.19
 
 require (
 	github.com/goccy/go-yaml v1.9.6
+	github.com/gorilla/mux v1.8.0
 	github.com/stianeikeland/go-rpio v4.2.0+incompatible
 	go.uber.org/zap v1.23.0
 )
