@@ -1,4 +1,4 @@
-module gitea.k8s.attiss.xyz/attiss/rpi-switch
+module github.com/attiss/rpi-switch
 
 go 1.19
 

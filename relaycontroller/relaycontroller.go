@@ -3,7 +3,7 @@ package relaycontroller
 import (
 	"errors"
 
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/config"
+	"github.com/attiss/rpi-switch/config"
 	"github.com/stianeikeland/go-rpio"
 	"go.uber.org/zap"
 )

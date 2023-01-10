@@ -1,0 +1,18 @@
+[Unit]
+Description=rpi-switch
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/rpi-switch/
+ExecStart=/opt/rpi-switch/rpi-switch -config config.yaml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=always
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rpi-switch
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

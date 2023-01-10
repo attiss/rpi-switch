@@ -5,8 +5,8 @@ import (
 	"os"
 	"os/signal"
 
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/config"
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/server"
+	"github.com/attiss/rpi-switch/config"
+	"github.com/attiss/rpi-switch/server"
 	"go.uber.org/zap"
 )
 

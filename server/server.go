@@ -6,8 +6,8 @@ import (
 	"os"
 	"time"
 
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/config"
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/relaycontroller"
+	"github.com/attiss/rpi-switch/config"
+	"github.com/attiss/rpi-switch/relaycontroller"
 	"go.uber.org/zap"
 )
 

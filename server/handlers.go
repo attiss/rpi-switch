@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"gitea.k8s.attiss.xyz/attiss/rpi-switch/relaycontroller"
+	"github.com/attiss/rpi-switch/relaycontroller"
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
 )
