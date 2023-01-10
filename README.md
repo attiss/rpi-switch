@@ -95,3 +95,23 @@ To see whether `relay2` is on or not, you can use the following API request:
 $ curl -X GET 127.0.0.1:8080/relay/relay2
 {"state":1}
 ```
+
+## Using with Home Assistant
+
+[RESTful switch](https://www.home-assistant.io/integrations/switch.rest/):
+
+>The `rest` switch platform allows you to control a given endpoint that supports a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer). The switch can get the state via GET and set the state via POST on a given REST resource.
+
+### Example configuration
+
+Add a similar snippet to your `configuration.yaml`:
+
+```yaml
+switch:
+  - platform: rest
+    resource: http://<rpi-ip-address>:8080/relay/toaster
+    name: Toaster
+    timeout: 3
+    body_on: "{\"state\":1}"
+    body_off: "{\"state\":0}"
+```
